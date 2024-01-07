@@ -1,22 +1,32 @@
-import { object, string } from "zod"
+import { TypeOf, object, string } from "zod"
 
 
 export const createUserSchema = object({
-body: object({
-    name : string({
-        required_error: "Name is required"
-    }),
-    password: string({
-        required_error: "Password is required"
+    body: object({
+        name: string({
+            required_error: "Name is required"
+        }),
+        password: string({
+            required_error: "Password is required"
 
-    }).min(6,"Password too short min 6 charts"),
-    passwordConfirmation: string({
-        required_error: "Password is required"
-    }),
-    email: string ({
-        required_error: "Email is required"
+        }).min(6, "Password too short min 6 charts"),
+        passwordConfirmation: string({
+            required_error: "passwordConfirmation is required"
+        }),
+        email: string({
+            required_error: "Email is required"
+        }).email("Email not valid")
+
+
+    }).refine((data) => data.password === data.passwordConfirmation, {
+
+        message: "Passwords do not match",
+        path: ["passwordConfirmation"]
     })
 })
 
 
-})
+export type CreateUserInput = Omit<
+TypeOf<typeof createUserSchema>,
+"body.passwordConfirmation"
+>

@@ -11,10 +11,7 @@ const port = config.get<number>('port')
 
 const app = express();
 
-logger.info(
-    "Hello world from ok?"
-)
-
+app.use(express.json())
 
 app.listen(port, async () => {
     logger.info(`
