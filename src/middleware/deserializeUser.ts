@@ -1,5 +1,5 @@
 import { get } from "lodash";
-import { Express, Response, Request, NextFunction, ErrorRequestHandler } from "express"
+import { Response, Request, NextFunction } from "express"
 import { verifyJwt } from "../utils/jwt.utils";
 import { reIssueAccessToken } from "../service/session.service";
 
@@ -10,7 +10,7 @@ const deserializeUser = async (req: Request, res: Response, next: NextFunction) 
         ""
     );
 
-    const refreshToken = get(req, "headers.x-refresh", "")[0];
+    const refreshToken = get(req, "headers.x-refresh");
 
     if (!accessToken) {
         return next();
@@ -30,9 +30,8 @@ const deserializeUser = async (req: Request, res: Response, next: NextFunction) 
         if (newAccessToken) {
             res.setHeader("x-access-token", newAccessToken);
         }
-
-        const result = verifyJwt(newAccessToken as string); // "accessTokenPublicKey"
-
+        
+        const result = verifyJwt(newAccessToken);
         res.locals.user = result.decoded;
         return next();
     }

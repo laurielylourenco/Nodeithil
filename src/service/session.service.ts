@@ -4,8 +4,6 @@ import { signJwt, verifyJwt } from "../utils/jwt.utils";
 import { get } from "lodash";
 import { findUser } from "./user.service";
 import config from "config";
-//import UserModel from "../models/user.models";
-
 
 export async function createSession(userId: string, userAgent: string) {
 
@@ -20,20 +18,14 @@ export async function findSession(query: FilterQuery<SchemaDocument>) {
     return SessionModel.find(query).lean();
 }
 
-
-export async function updateSession(query: FilterQuery<SchemaDocument>,
-    update: UpdateQuery<SchemaDocument>
-) {
+export async function updateSession(query: FilterQuery<SchemaDocument>, update: UpdateQuery<SchemaDocument>) {
 
     return SessionModel.updateOne(query, update)
-
 }
 
-
-
-export async function reIssueAccessToken({ refreshToken,}: {refreshToken: string; }) {
+export async function reIssueAccessToken({ refreshToken}: {refreshToken: string; }) {
     
-    const { decoded } = verifyJwt(refreshToken); // , "refreshTokenPublicKey"
+    const { decoded } = verifyJwt(refreshToken); 
 
     if (!decoded || !get(decoded, "session")) return false;
 
@@ -45,18 +37,10 @@ export async function reIssueAccessToken({ refreshToken,}: {refreshToken: string
 
     if (!user) return false;
 
-    /*     const accessToken = signJwt(
-            { ...user, session: session._id },
-            "accessTokenPrivateKey",
-            { expiresIn: config.get("accessTokenTtl") } // 15 minutes
-        );
-     */
-
     const accessToken = signJwt(
         { ...user, session: session._id },
         { expiresIn: config.get("accessTokenTtl") }
     )
-
 
     return accessToken;
 }

@@ -110,8 +110,8 @@ dist
 
 # Serverless directories
 .serverless/
-*teste
-*test
+teste.ts
+
 # FuseBox cache
 .fusebox/
 
