@@ -9,8 +9,6 @@ export function signJwt(
     object: Object, options?: Jwt.SignOptions | undefined,
 ) {
 
-    console.log('o que tem no objeto ?   ',object)
-    console.log("O que tem no options ",options)
     return Jwt.sign(object, privateKey, {
         ...(options && options),
         algorithm: 'RS256'
@@ -21,8 +19,6 @@ export function verifyJwt(token: string) {
 
     try {
 
-        console.log("-----------------------------------------------------------")
-        console.info(token)
         const decoded = Jwt.verify(token, publicKey)
 
         return {
