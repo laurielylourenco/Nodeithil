@@ -1,6 +1,6 @@
 # Nodeithil
 
-Uma API REST de criação de usuario
+Este repositório contém uma API REST básica desenvolvida com Node.js, Express, TypeScript, MongoDB e Zod para validação de entrada. Serve como ponto de partida para a construção de APIs escaláveis e de fácil manutenção. Sinta-se à vontade para usar e personalizar de acordo com seus projetos.
 
 ## Stack utilizada
 
@@ -8,8 +8,6 @@ Uma API REST de criação de usuario
 **Back-end:** Node, Express, Typescript,Mongoose
 
 ## Funcionalidades
-
-- Building ....
 
 
 ## Rodar projeto 
