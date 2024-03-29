@@ -35,4 +35,9 @@ Inicie o servidor
     yarn dev
 ```
 
+
+### Observação Importante:
+
+Atualmente, o projeto não está configurado para ser executado dentro de um contêiner Docker. Mas em breve estará para ser de facil execução
+
 Para configurar o MongoDB localmente, você pode instalá-lo manualmente em sua maquina ou optar por uma versão gratuita no [MongoDB Atlas](https://www.mongodb.com/pt-br/cloud/atlas/lp/try4?utm_source=google&utm_campaign=search_gs_pl_evergreen_atlas_core_retarget-brand_gic-null_amers-all_ps-all_desktop_eng_lead&utm_term=mongodb%20atlas&utm_medium=cpc_paid_search&utm_ad=e&utm_ad_campaign_id=14412646314&adgroup=131761122132&cq_cmp=14412646314&gad_source=1&gclid=Cj0KCQiA-62tBhDSARIsAO7twbZWgb5b5o8j2bjDgUm2Bk4EN7FwghLYQuBFbkWtm5PrVZwVDEuqEqIaAtUDEALw_wcB).
