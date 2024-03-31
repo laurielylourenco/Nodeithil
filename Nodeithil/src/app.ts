@@ -5,7 +5,8 @@ import connect from "./utils/connect";
 import logger from "./utils/logger";
 import routes from "./routes";
 import deserializeUser from "./middleware/deserializeUser";
-import cors from 'cors';
+import swaggerDocs from "./utils/docs";
+
 const port = config.get<number>('port')
 const app = express();
 
@@ -18,5 +19,6 @@ app.listen(port, async () => {
     logger.info(`Porta on 234234 ${port}`)
     await connect();
     routes(app)
+    swaggerDocs(app, port)
 
 })
