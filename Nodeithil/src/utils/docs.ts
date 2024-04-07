@@ -7,8 +7,8 @@ const options: Options = {
   definition: {
     openapi: '3.0.0',
     info: {
-      title: 'Rest API ',
-      description: "API endpoints",
+      title: 'Rest API',
+      description: "API cria usuários (create), sessões e produtos (CRUD). Requisições autenticadas por token fazem CRUD em produtos é sessões.",
       contact: {
         name: "Lauriely Lourenço",
         email: "laurielylourenco@gmail.com",

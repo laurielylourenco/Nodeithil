@@ -11,6 +11,12 @@ import { createProductHandler, deleteProductHandler, getProductHandler, updatePr
 
 /**
  * @swagger
+ * components:
+ *  securitySchemes:
+ *    bearerAuth:
+ *     type: http
+ *     scheme: bearer
+ *     bearerFormat: JWT
  * /api/users:
  *   post:
  *     summary: Create a new user
@@ -58,6 +64,8 @@ import { createProductHandler, deleteProductHandler, getProductHandler, updatePr
  *       400:
  *         description: Bad request
  *   get:
+ *     security:
+ *        - bearerAuth: []
  *     summary: Get sessions
  *     tags:
  *       - Sessions
@@ -67,6 +75,8 @@ import { createProductHandler, deleteProductHandler, getProductHandler, updatePr
  *       401:
  *         description: Unauthorized
  *   delete:
+ *     security:
+ *       - bearerAuth: []
  *     summary: Delete session
  *     tags:
  *       - Sessions
@@ -75,6 +85,8 @@ import { createProductHandler, deleteProductHandler, getProductHandler, updatePr
  *         description: Session deleted successfully
  * /api/products:
  *   post:
+ *     security:
+ *       - bearerAuth: []
  *     summary: Create a new product
  *     tags:
  *       - Products
@@ -114,6 +126,8 @@ import { createProductHandler, deleteProductHandler, getProductHandler, updatePr
  *       404:
  *         description: Product not found
  *   put:
+ *     security:
+ *       - bearerAuth: []
  *     summary: Update product
  *     tags:
  *       - Products
@@ -146,6 +160,8 @@ import { createProductHandler, deleteProductHandler, getProductHandler, updatePr
  *       404:
  *         description: Product not found
  *   delete:
+ *     security:
+ *       - bearerAuth: []
  *     summary: Delete product
  *     tags:
  *       - Products
